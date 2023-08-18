@@ -8,9 +8,6 @@ class DigitaloceanSpacesProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->mergeConfigFrom(
-            __DIR__.'/config/filesystems.php', 'filesystems'
-        );
     }
 
     public function boot()
@@ -18,5 +15,9 @@ class DigitaloceanSpacesProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/config/digitaloceanspaces.php' => config_path('digitaloceanspaces.php'),
         ], 'config');
+
+        $this->mergeConfigFrom(
+            __DIR__.'/config/filesystems.php', 'filesystems'
+        );
     }
 }
