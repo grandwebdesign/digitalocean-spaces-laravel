@@ -5,7 +5,7 @@ namespace Grandwebdesign\DigitaloceanSpacesLaravel;
 use Illuminate\Support\Facades\Storage;
 use Error;
 
-class DigitalOceanSpaces
+class DigitaloceanSpaces
 {
     private $storage;
 
