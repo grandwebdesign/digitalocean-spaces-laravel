@@ -15,9 +15,9 @@ class DigitaloceanSpacesProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/config/digitaloceanspaces.php' => config_path('digitaloceanspaces.php'),
         ], 'config');
-        
+
         $this->mergeConfigFrom(
-            __DIR__ . '/config/digitaloceanfilesystem.php', 'filesystems'
+            __DIR__ . '/config/digitaloceanfilesystem.php', 'filesystems.disks'
         );
     }
 }
