@@ -9,19 +9,8 @@ This package provides easy integration and management of DigitalOcean Spaces in 
 
 ## Installation
 To install the package via Composer:
-
-You first need to add to your `composer.json`
 ```bash
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/grandwebdesign/digitalocean-spaces-laravel.git"
-        }
-    ]
-```
-Then run
-```bash
-composer require grandwebesign/digitalocean-spaces-laravel
+composer require grandwebdesign/digitalocean-spaces-laravel
 ```
 
 ## Configuration
