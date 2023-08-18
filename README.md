@@ -36,7 +36,7 @@ DO_ENDPOINT=
 DO_FOLDER=
 ```
 
-Note on DO_FOLDER: This variable can remain empty if you want to upload files to the root directory. Otherwise, specify a folder name, such as "uploads", so all files will be uploaded to the "/uploads/" path.
+Note on DO_FOLDER: This variable can remain empty if you want to upload files to the root directory. Otherwise, specify a folder name, such as `"uploads"`, so all files will be uploaded to the `/uploads/` path.
 
 ## Usage
 To upload a file
