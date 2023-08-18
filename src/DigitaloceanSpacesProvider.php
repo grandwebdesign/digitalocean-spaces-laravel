@@ -8,7 +8,9 @@ class DigitaloceanSpacesProvider extends ServiceProvider
 {
     public function register()
     {
-        // Bindings
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/filesystems.php', 'filesystems'
+        );
     }
 
     public function boot()
