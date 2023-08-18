@@ -1,0 +1,36 @@
+{
+    "name": "grandwebdesign/digitalocean-spaces-laravel",
+    "description": "This package will help uploading and removing assets to digitalocean spaces",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Dominik Jaross",
+            "email": "dom@grandwebdesign.co.uk"
+        }
+    ],
+        "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^10.0",
+        "illuminate/http": "^10.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Grandwebdesign\\DigitaloceanSpacesLaravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Grandwebdesign\\DigitaloceanSpacesLaravel\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Grandwebdesign\\DigitaloceanSpacesLaravel\\DigitaloceanSpacesProvider"
+            ]
+        }
+    }
+}
