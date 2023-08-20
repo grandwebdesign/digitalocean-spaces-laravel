@@ -91,7 +91,9 @@ class DigitaloceanSpaces
         }
 
         \Tinify\setKey(config('digitaloceanspaces.tinify_key'));
-        return \Tinify\fromFile($this->file)->toBuffer();
+        return \Tinify\fromBuffer(
+            file_get_contents($this->file->getRealPath())
+        )->toBuffer();
     }
 
     private function allowedFileTypesToCompress()
