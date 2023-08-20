@@ -4,6 +4,7 @@ namespace Grandwebdesign\DigitaloceanSpacesLaravel;
 
 use Illuminate\Support\Facades\Storage;
 use Error;
+use Illuminate\Http\File;
 
 class DigitaloceanSpaces
 {
@@ -43,7 +44,8 @@ class DigitaloceanSpaces
 
         if ($this->compress) {
             try {
-                $file = $this->compress();
+                $compressedFile = $this->compress();
+                $file = new File($compressedFile);
             } catch (Error $e) {
                 throw new Error($e->getMessage(), $e->getCode());
             }
@@ -57,6 +59,12 @@ class DigitaloceanSpaces
             );
         } catch (Error $e) {
             throw new Error($e->getMessage(), $e->getCode());
+        }
+
+        if ($this->compress) {
+            if (file_exists($compressedFile)) {
+                unlink($compressedFile);
+            }
         }
 
         return $this->folder . '/' . $this->fileName;
@@ -90,10 +98,18 @@ class DigitaloceanSpaces
             throw new Error('Cannot compress '. $this->file->getMimeType(), 422);
         }
 
+        if (!is_dir(storage_path('app/public/temp'))) {
+             mkdir(storage_path('app/public/temp'));
+        }
+
+        $tempFile = storage_path('app/public/temp/' . uniqid('temp-img-') . '.' . $this->file->getClientOriginalExtension());
+
         \Tinify\setKey(config('digitaloceanspaces.tinify_key'));
-        return \Tinify\fromBuffer(
+        \Tinify\fromBuffer(
             file_get_contents($this->file->getRealPath())
-        )->toBuffer();
+        )->toFile($tempFile);
+        
+        return $tempFile;
     }
 
     private function allowedFileTypesToCompress()
