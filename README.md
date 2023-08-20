@@ -27,6 +27,11 @@ DO_FOLDER=
 
 Note on DO_FOLDER: This variable can remain empty if you want to upload files to the root directory. Otherwise, specify a folder name, such as `"uploads"`, so all files will be uploaded to the `/uploads/` path.
 
+If you want to compress the image files as you upload you also need to specify your [TinyPNG](https://tinypng.com/) API key to your `.env` file.
+```bash
+TINIFY_API_KEY=
+```
+
 ## Usage
 To upload a file
 ```bash
